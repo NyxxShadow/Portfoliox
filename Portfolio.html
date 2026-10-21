@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mohamad Maged Portfolio</title>
+<meta name="description" content="Mohamad Maged, AI Automation & Full-Stack Engineer with a cybersecurity background. Production AI agents, WhatsApp/Telegram bots, workflow automations and fast web apps." />
+<meta name="theme-color" content="#0d0f12" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230d0f12'/%3E%3Crect x='2' y='2' width='60' height='60' fill='none' stroke='%23ff5a1f' stroke-width='2'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='24' font-weight='700' fill='%23eceae4' text-anchor='middle'%3EMM%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg-primary:#0d0f12;--bg-elevated:#12151a;--bg-panel:#161a20;--bg-interactive:#1b2028;
+  --text-primary:#eceae4;--text-secondary:#a0a6b2;--text-muted:#646b78;
+  --accent:#ff5a1f;--accent-dim:rgba(255,90,31,.12);--accent-border:rgba(255,90,31,.45);
+  --status-ok:#2ee59d;--hairline:#222730;--hairline-strong:#313846;
+  --grid-line:rgba(236,234,228,.028);--grid-subline:rgba(236,234,228,.012);
+  --font-sans:'Space Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --max-width:1440px;--nav-height:64px;--gutter:clamp(1rem,3vw,2.75rem);
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-height);background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{min-height:100vh;background-color:var(--bg-primary);color:var(--text-primary);
+  background-image:linear-gradient(to right,var(--grid-line) 1px,transparent 1px),linear-gradient(to bottom,var(--grid-line) 1px,transparent 1px),linear-gradient(to right,var(--grid-subline) 1px,transparent 1px),linear-gradient(to bottom,var(--grid-subline) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px;overflow-x:hidden}
+body.menu-open{overflow:hidden}
+@media (hover:hover) and (pointer:fine){body{cursor:crosshair}a,button,summary,input,select,textarea{cursor:pointer}input,textarea{cursor:text}}
+::selection{background:var(--accent);color:var(--bg-primary)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.skip-link{position:fixed;top:-100px;left:1rem;z-index:9999;background:var(--accent);color:var(--bg-primary);font-family:var(--font-mono);font-size:.75rem;font-weight:600;padding:.6rem 1rem;text-transform:uppercase}
+.skip-link:focus{top:1rem}
+a{color:inherit;text-decoration:none}ul,ol{list-style:none}
+img,svg,canvas{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit;background:none;border:none}
+.mono{font-family:var(--font-mono);letter-spacing:.04em}
+.spec-label{font-family:var(--font-mono);font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--text-secondary);display:inline-flex;align-items:center;gap:.5rem}
+.spec-label::before{content:"";width:6px;height:6px;background:var(--accent);flex-shrink:0}
+.section-index-big{font-family:var(--font-mono);font-size:clamp(2.75rem,6vw,5.25rem);font-weight:600;line-height:.9;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px var(--hairline-strong);user-select:none;display:block;margin-bottom:.75rem}
+.section-heading{font-size:clamp(1.75rem,3.8vw,3.25rem);font-weight:700;line-height:1.08;letter-spacing:-.03em;margin-top:.75rem}
+.side-annotation{font-family:var(--font-mono);font-size:.6875rem;line-height:1.5;color:var(--text-muted);text-transform:uppercase;letter-spacing:.07em;border-left:1px solid var(--hairline-strong);padding-left:.75rem;margin-top:1.25rem}
+.shell{width:100%;max-width:var(--max-width);margin-inline:auto;border-left:1px solid var(--hairline);border-right:1px solid var(--hairline);position:relative}
+.section-block{border-bottom:1px solid var(--hairline);position:relative}
+.section-block::after{content:"+";position:absolute;bottom:-9px;right:-5px;font-family:var(--font-mono);font-size:12px;line-height:1;color:var(--text-muted);pointer-events:none;z-index:2}
+.grid-12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));width:100%}
+.pad-cell{padding:clamp(1.5rem,3.5vw,3.25rem) var(--gutter)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.65rem;font-family:var(--font-mono);font-size:.8125rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.85rem 1.35rem;border:1px solid var(--hairline-strong);background:var(--bg-elevated);color:var(--text-primary);transition:transform .2s var(--ease),border-color .2s,background-color .2s,color .2s;white-space:nowrap}
+.btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:#0d0f12;font-weight:600}
+.btn-primary:hover{background:#ff6e3a;border-color:#ff6e3a;color:#0d0f12}
+.btn-sm{padding:.55rem .95rem;font-size:.75rem}
+.inline-cta{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--font-mono);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s,transform .2s var(--ease)}
+.inline-cta:hover{border-color:var(--accent);transform:translateX(3px)}
+
+/* NAV */
+.site-header{position:sticky;top:0;z-index:100;height:var(--nav-height);background:rgba(13,15,18,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline)}
+.nav-inner{max-width:var(--max-width);height:100%;margin-inline:auto;border-left:1px solid var(--hairline);border-right:1px solid var(--hairline);display:flex;align-items:center;justify-content:space-between;padding-inline:var(--gutter);gap:1rem}
+.brand{display:inline-flex;align-items:center;gap:.75rem;flex-shrink:0;min-width:0}
+.brand-monogram{width:34px;height:34px;border:1px solid var(--accent);background:var(--bg-elevated);display:grid;place-items:center;font-family:var(--font-mono);font-size:.8125rem;font-weight:600;position:relative;flex-shrink:0}
+.brand-monogram::after{content:"";position:absolute;top:3px;right:3px;width:4px;height:4px;background:var(--accent)}
+.brand-text{display:flex;flex-direction:column;min-width:0}
+.brand-name{font-weight:700;font-size:.9375rem;letter-spacing:-.02em;line-height:1.1;white-space:nowrap}
+.brand-role{font-family:var(--font-mono);font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:.25rem}
+.nav-link{font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-secondary);padding:.45rem .7rem;transition:color .15s}
+.nav-link:hover{color:var(--text-primary)}
+.nav-link.active{color:var(--accent)}
+.nav-link.active::before{content:"[";margin-right:2px}.nav-link.active::after{content:"]";margin-left:2px}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.cairo-clock{display:flex;align-items:center;gap:.45rem;font-family:var(--font-mono);font-size:.72rem;color:var(--text-secondary);padding:.35rem .65rem;border:1px solid var(--hairline);background:var(--bg-elevated);white-space:nowrap}
+.clock-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.3}}
+.menu-toggle{display:none;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;padding:.5rem .75rem;border:1px solid var(--hairline-strong);background:var(--bg-elevated);color:var(--text-primary)}
+.mobile-menu{position:fixed;top:var(--nav-height);left:0;right:0;bottom:0;background-color:var(--bg-primary);background-image:linear-gradient(to right,var(--grid-line) 1px,transparent 1px),linear-gradient(to bottom,var(--grid-line) 1px,transparent 1px);background-size:60px 60px;z-index:99;display:flex;flex-direction:column;justify-content:space-between;gap:2rem;padding:1.5rem var(--gutter) 2rem;transform:translateY(-110%);visibility:hidden;transition:transform .3s var(--ease),visibility .3s;overflow-y:auto}
+.mobile-menu.is-open{transform:translateY(0);visibility:visible}
+.mobile-nav-list{border-top:1px solid var(--hairline)}
+.mobile-nav-item{border-bottom:1px solid var(--hairline)}
+.mobile-nav-link{display:flex;align-items:baseline;justify-content:space-between;padding:1rem 0;font-size:1.4rem;font-weight:700;letter-spacing:-.02em}
+.mobile-nav-link .mono{font-size:.75rem;color:var(--accent);font-weight:500}
+.mobile-menu-footer{display:flex;flex-direction:column;gap:1rem}
+
+/* HERO */
+.hero-left{grid-column:span 7;border-right:1px solid var(--hairline);display:flex;flex-direction:column;justify-content:space-between}
+.hero-right{grid-column:span 5;position:relative;display:flex;flex-direction:column;background:rgba(18,21,26,.55);min-height:460px}
+.hero-status-bar{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
+.status-pill{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;padding:.35rem .7rem;border:1px solid var(--hairline-strong);background:var(--bg-elevated)}
+.status-pill-dot{width:7px;height:7px;border-radius:50%;background:var(--status-ok);box-shadow:0 0 0 3px rgba(46,229,157,.15)}
+.status-pill-tag{color:var(--text-secondary);border-color:var(--hairline)}
+.hero-headline{font-size:clamp(2.1rem,4.4vw,4.1rem);font-weight:700;line-height:1.04;letter-spacing:-.035em;margin-bottom:1.5rem;max-width:19ch}
+.accent-underline{color:var(--accent);border-bottom:2px solid var(--accent)}
+.hero-subline{font-size:clamp(1rem,1.35vw,1.2rem);color:var(--text-secondary);max-width:56ch;margin-bottom:2.25rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-bottom:2.5rem}
+.hero-meta{border-top:1px solid var(--hairline);padding-top:1.25rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;font-family:var(--font-mono);font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em}
+.hero-meta strong{display:block;color:var(--text-secondary);font-weight:500;margin-top:.15rem}
+.canvas-hud{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.75rem 1.15rem;font-family:var(--font-mono);font-size:.66rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--hairline)}
+.canvas-hud.bottom{border-bottom:none;border-top:1px solid var(--hairline)}
+.canvas-stage{position:relative;flex:1;min-height:340px;overflow:hidden;touch-action:pan-y}
+#arch-canvas{position:absolute;inset:0;width:100%;height:100%}
+
+/* PROOF */
+.proof-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--bg-elevated)}
+.proof-item{padding:1.65rem var(--gutter);border-right:1px solid var(--hairline);display:flex;flex-direction:column;gap:.5rem}
+.proof-item:last-child{border-right:none}
+.proof-index{font-family:var(--font-mono);font-size:.66rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.proof-value{font-size:clamp(1.4rem,2.3vw,2rem);font-weight:700;letter-spacing:-.03em;line-height:1.1}
+.proof-desc{font-family:var(--font-mono);font-size:.75rem;color:var(--text-secondary)}
+
+/* WORK */
+.section-rail{grid-column:span 4;border-right:1px solid var(--hairline)}
+.section-rail-sticky{position:sticky;top:calc(var(--nav-height) + 2rem)}
+.section-main{grid-column:span 8;min-width:0}
+.case-study{border-bottom:1px solid var(--hairline);padding:clamp(1.75rem,3.5vw,3rem) var(--gutter)}
+.case-study:last-child{border-bottom:none}
+.case-header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.75rem;margin-bottom:1.1rem}
+.case-id{font-family:var(--font-mono);font-size:.75rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.case-class{font-family:var(--font-mono);font-size:.66rem;color:var(--text-muted);text-transform:uppercase;padding:.2rem .55rem;border:1px solid var(--hairline)}
+.case-title{font-size:clamp(1.35rem,2.3vw,1.95rem);font-weight:700;letter-spacing:-.025em;margin-bottom:1.5rem;line-height:1.2}
+.spec-table{border:1px solid var(--hairline-strong);background:var(--bg-elevated);margin-bottom:1.5rem}
+.spec-row{display:grid;grid-template-columns:130px minmax(0,1fr);border-bottom:1px solid var(--hairline)}
+.spec-row:last-child{border-bottom:none}
+.spec-key{font-family:var(--font-mono);font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--text-secondary);padding:.9rem 1rem;border-right:1px solid var(--hairline);background:rgba(13,15,18,.5)}
+.spec-row:last-child .spec-key{color:var(--accent)}
+.spec-val{padding:.9rem 1.15rem;font-size:.95rem;line-height:1.55}
+.tag-cluster{display:flex;flex-wrap:wrap;gap:.45rem}
+.tech-tag{font-family:var(--font-mono);font-size:.72rem;padding:.2rem .55rem;border:1px solid var(--hairline-strong);background:var(--bg-primary);color:var(--text-secondary)}
+.diagram-frame{border:1px solid var(--hairline);background:var(--bg-primary);padding:1rem 1.15rem}
+.diagram-caption{font-family:var(--font-mono);font-size:.66rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:space-between}
+.diagram-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.system-svg{width:100%;min-width:560px;height:auto}
+.system-svg text{font-family:'JetBrains Mono',monospace}
+.flow{stroke-dasharray:4 4;animation:dash 1.2s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-16}}
+
+/* SERVICES */
+.service-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));border-bottom:1px solid var(--hairline);transition:background-color .2s}
+.service-row:last-child{border-bottom:none}
+.service-row:hover{background:rgba(22,26,32,.55)}
+.service-num{grid-column:span 2;padding:clamp(1.5rem,3vw,2.5rem) var(--gutter);border-right:1px solid var(--hairline);font-family:var(--font-mono);font-size:1.25rem;font-weight:600;color:var(--accent)}
+.service-title-col{grid-column:span 5;padding:clamp(1.5rem,3vw,2.5rem) var(--gutter);border-right:1px solid var(--hairline);display:flex;flex-direction:column;gap:.75rem}
+.service-title{font-size:clamp(1.25rem,2vw,1.65rem);font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.service-sub{color:var(--text-secondary);font-size:.95rem}
+.service-spec-col{grid-column:span 5;padding:clamp(1.5rem,3vw,2.5rem) var(--gutter);display:flex;flex-direction:column;gap:1.25rem}
+.service-deliverables{display:flex;flex-direction:column;gap:.5rem;font-size:.925rem;color:var(--text-secondary)}
+.service-deliverables li{display:flex;align-items:baseline;gap:.6rem}
+.service-deliverables li::before{content:"//";font-family:var(--font-mono);font-size:.72rem;color:var(--accent);flex-shrink:0}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hairline)}
+.process-step{padding:clamp(1.5rem,3vw,2.5rem) var(--gutter);border-right:1px solid var(--hairline);display:flex;flex-direction:column;justify-content:space-between}
+.process-step:last-child{border-right:none}
+@media (min-width:1121px){.process-step:nth-child(2){padding-top:3.75rem}.process-step:nth-child(3){padding-top:5.25rem}.process-step:nth-child(4){padding-top:6.75rem}}
+.process-num{font-family:var(--font-mono);font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;display:flex;justify-content:space-between;padding-bottom:.75rem;border-bottom:1px solid var(--hairline);margin-bottom:1.25rem}
+.process-title{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.75rem}
+.process-desc{font-size:.925rem;color:var(--text-secondary)}
+.process-gate{font-family:var(--font-mono);font-size:.66rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;padding-top:1rem;margin-top:1.5rem;border-top:1px dashed var(--hairline)}
+
+/* TIMELINE */
+.timeline-item{display:grid;grid-template-columns:220px minmax(0,1fr);border-bottom:1px solid var(--hairline)}
+.timeline-item:last-child{border-bottom:none}
+.timeline-meta{padding:clamp(1.5rem,3vw,2.5rem) var(--gutter);border-right:1px solid var(--hairline);font-family:var(--font-mono);font-size:.75rem;color:var(--text-secondary);display:flex;flex-direction:column;gap:.45rem}
+.timeline-period{color:var(--accent);font-weight:600}
+.timeline-body{padding:clamp(1.5rem,3vw,2.5rem) var(--gutter)}
+.timeline-role{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.35rem;line-height:1.25}
+.timeline-org{font-family:var(--font-mono);font-size:.82rem;color:var(--text-secondary);margin-bottom:1.25rem;display:flex;flex-wrap:wrap;gap:.6rem}
+.timeline-org a{color:var(--accent);border-bottom:1px solid var(--accent-border)}
+.timeline-bullets{display:flex;flex-direction:column;gap:.65rem;color:var(--text-secondary);font-size:.95rem}
+.timeline-bullets li{position:relative;padding-left:1.25rem}
+.timeline-bullets li::before{content:"—";position:absolute;left:0;color:var(--accent);font-family:var(--font-mono)}
+
+/* STACK */
+.stack-matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.stack-group{padding:clamp(1.5rem,3vw,2.5rem) var(--gutter);border-right:1px solid var(--hairline);border-bottom:1px solid var(--hairline);display:flex;flex-direction:column;gap:1.25rem}
+.stack-group:nth-child(2n){border-right:none}
+.stack-group:nth-last-child(-n+2){border-bottom:none}
+.stack-group-header{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--hairline);padding-bottom:.75rem}
+.stack-group-title{font-family:var(--font-mono);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.stack-group-code{font-family:var(--font-mono);font-size:.7rem;color:var(--accent)}
+.stack-pills{display:flex;flex-wrap:wrap;gap:.5rem}
+.stack-pill{font-family:var(--font-mono);font-size:.78rem;padding:.45rem .75rem;border:1px solid var(--hairline-strong);background:var(--bg-elevated);transition:border-color .15s,color .15s}
+.stack-pill:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ABOUT / PARTNER */
+.about-copy{display:flex;flex-direction:column;gap:1.5rem;max-width:64ch}
+.about-lead{font-size:clamp(1.2rem,2vw,1.55rem);font-weight:600;line-height:1.4;letter-spacing:-.02em;border-left:2px solid var(--accent);padding-left:1.25rem}
+.about-body{font-size:1.025rem;color:var(--text-secondary);line-height:1.7}
+.about-specs{margin-top:2rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--hairline);background:var(--bg-elevated)}
+.about-spec{padding:1rem 1.15rem;border-right:1px solid var(--hairline);font-family:var(--font-mono);font-size:.78rem}
+.about-spec:last-child{border-right:none}
+.about-spec span{display:block;color:var(--text-muted);font-size:.66rem;text-transform:uppercase;margin-bottom:.25rem}
+.partnership-banner{background-color:var(--bg-elevated);background-image:linear-gradient(135deg,rgba(255,90,31,.07) 0%,transparent 60%);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));align-items:stretch}
+.partnership-left{grid-column:span 8;padding:clamp(2rem,4vw,3.5rem) var(--gutter);border-right:1px solid var(--hairline)}
+.partnership-quote{font-size:clamp(1.4rem,2.5vw,2.15rem);font-weight:700;line-height:1.2;letter-spacing:-.025em;margin:.85rem 0 1rem;max-width:30ch}
+.partnership-right{grid-column:span 4;padding:clamp(2rem,4vw,3.5rem) var(--gutter);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:1rem}
+
+/* CONTACT */
+.contact-left{grid-column:span 5;border-right:1px solid var(--hairline);display:flex;flex-direction:column;justify-content:space-between;gap:2rem}
+.contact-right{grid-column:span 7;background:rgba(18,21,26,.45)}
+.email-line{font-size:clamp(1.05rem,2vw,1.4rem);font-weight:600;word-break:break-all;color:var(--text-primary);border-bottom:1px solid var(--accent-border)}
+.email-line:hover{color:var(--accent)}
+.btn-row{display:flex;flex-wrap:wrap;gap:.6rem}
+.spec-form{display:flex;flex-direction:column;gap:1.25rem}
+.form-row-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+.field-group{display:flex;flex-direction:column;gap:.45rem}
+.field-label{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text-secondary);display:flex;justify-content:space-between}
+.field-label span{color:var(--accent)}
+.field-input,.field-select,.field-textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--hairline-strong);background:var(--bg-primary);color:var(--text-primary);font-size:16px;border-radius:0;transition:border-color .15s}
+.field-select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--accent) 50%),linear-gradient(135deg,var(--accent) 50%,transparent 50%);background-position:calc(100% - 18px) 1.2rem,calc(100% - 13px) 1.2rem;background-size:5px 5px;background-repeat:no-repeat;padding-right:2.5rem}
+.field-select option{background:var(--bg-primary)}
+.field-textarea{min-height:130px;resize:vertical}
+.field-input:focus,.field-select:focus,.field-textarea:focus{border-color:var(--accent);outline:none}
+.form-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}
+.form-note{font-family:var(--font-mono);font-size:.7rem;color:var(--text-muted)}
+
+/* FOOTER */
+.site-footer{max-width:var(--max-width);margin-inline:auto;border-left:1px solid var(--hairline);border-right:1px solid var(--hairline);padding:1.5rem var(--gutter) 2rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;font-family:var(--font-mono);font-size:.75rem;color:var(--text-secondary)}
+.terminal-prompt{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem;min-width:0}
+.terminal-user{color:var(--accent);font-weight:600}
+.terminal-cursor{display:inline-block;width:7px;height:13px;background:var(--accent);animation:blink 1.1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.js .reveal.is-visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1!important;transform:none!important;transition:none!important}.terminal-cursor,.flow,.clock-dot{animation:none}}
+
+/* RESPONSIVE */
+@media (max-width:1120px){
+  .nav-links{display:none}.menu-toggle{display:inline-flex}
+  .hero-left,.hero-right,.section-rail,.section-main,.contact-left,.contact-right,.partnership-left,.partnership-right{grid-column:span 12}
+  .hero-left,.section-rail,.contact-left,.partnership-left{border-right:none;border-bottom:1px solid var(--hairline)}
+  .hero-right{min-height:380px}
+  .section-rail-sticky{position:static}
+  .proof-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .proof-item:nth-child(2){border-right:none}
+  .proof-item:nth-child(-n+2){border-bottom:1px solid var(--hairline)}
+  .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .process-step:nth-child(2){border-right:none}
+  .process-step:nth-child(-n+2){border-bottom:1px solid var(--hairline)}
+}
+@media (max-width:768px){
+  .clock-loc,.btn-nav-cta{display:none}
+  .spec-row{grid-template-columns:1fr}
+  .spec-key{border-right:none;border-bottom:1px solid var(--hairline);padding:.55rem .9rem}
+  .service-num,.service-title-col,.service-spec-col{grid-column:span 12;border-right:none}
+  .service-num{padding-bottom:.25rem}
+  .service-title-col{padding-top:0;padding-bottom:.75rem}
+  .service-spec-col{padding-top:0}
+  .timeline-item{grid-template-columns:1fr}
+  .timeline-meta{border-right:none;border-bottom:1px solid var(--hairline);padding-bottom:.85rem;flex-direction:row;flex-wrap:wrap;gap:.35rem 1rem}
+  .stack-matrix{grid-template-columns:1fr}
+  .stack-group{border-right:none;border-bottom:1px solid var(--hairline)!important}
+  .stack-group:last-child{border-bottom:none!important}
+  .about-specs{grid-template-columns:1fr}
+  .about-spec{border-right:none;border-bottom:1px solid var(--hairline)}
+  .about-spec:last-child{border-bottom:none}
+  .form-row-2{grid-template-columns:1fr}
+  .hero-actions .btn{flex:1 1 auto}
+}
+@media (max-width:520px){
+  .proof-strip,.process-grid{grid-template-columns:1fr}
+  .proof-item,.process-step{border-right:none!important;border-bottom:1px solid var(--hairline)}
+  .proof-item:last-child,.process-step:last-child{border-bottom:none}
+  .hero-meta{grid-template-columns:1fr;gap:.65rem}
+  .brand-role{display:none}
+  .shell,.nav-inner,.site-footer{border-left:none;border-right:none}
+  .canvas-hud{font-size:.6rem;padding:.65rem 1rem}
+  .hero-right{min-height:330px}
+  .canvas-stage{min-height:270px}
+  .btn-row .btn{flex:1 1 calc(50% - .6rem)}
+  .partnership-right .btn,.form-footer .btn{width:100%}
+  .section-block::after{right:2px}
+}
+</style>
+<script>document.documentElement.classList.replace('no-js','js');</script>
+</head>
+<body id="top">
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="Mohamad Maged, back to top">
+      <span class="brand-monogram" aria-hidden="true">MM</span>
+      <span class="brand-text">
+        <span class="brand-name">Mohamad Maged</span>
+        <span class="brand-role">AI Automation &amp; Full-Stack</span>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#work" class="nav-link">Work</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#stack" class="nav-link">Stack</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="cairo-clock" aria-label="Local time in Cairo">
+        <span class="clock-dot" aria-hidden="true"></span>
+        <span class="clock-loc">CAIRO, EG //</span>
+        <span id="cairo-time">--:--:--</span>
+      </div>
+      <a href="#contact" class="btn btn-primary btn-sm btn-nav-cta">Let's talk</a>
+      <button type="button" class="menu-toggle" id="menu-btn" aria-expanded="false" aria-controls="mobile-menu">
+        <span id="menu-label">Menu</span><span aria-hidden="true" id="menu-icon">[+]</span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item"><a href="#work" class="mobile-nav-link">Work <span class="mono">01</span></a></li>
+        <li class="mobile-nav-item"><a href="#services" class="mobile-nav-link">Services <span class="mono">02</span></a></li>
+        <li class="mobile-nav-item"><a href="#process" class="mobile-nav-link">Process <span class="mono">03</span></a></li>
+        <li class="mobile-nav-item"><a href="#experience" class="mobile-nav-link">Experience <span class="mono">04</span></a></li>
+        <li class="mobile-nav-item"><a href="#stack" class="mobile-nav-link">Stack <span class="mono">05</span></a></li>
+        <li class="mobile-nav-item"><a href="#about" class="mobile-nav-link">About <span class="mono">06</span></a></li>
+        <li class="mobile-nav-item"><a href="#contact" class="mobile-nav-link">Contact <span class="mono">08</span></a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu-footer">
+      <div class="status-pill"><span class="status-pill-dot" aria-hidden="true"></span><span>Available for projects, remote worldwide</span></div>
+      <a href="#contact" class="btn btn-primary" style="width:100%">Start a project</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="shell">
+
+<!-- HERO -->
+<section class="section-block grid-12" aria-labelledby="hero-title">
+  <div class="hero-left pad-cell">
+    <div>
+      <div class="hero-status-bar">
+        <div class="status-pill"><span class="status-pill-dot" aria-hidden="true"></span><span>Available for projects</span></div>
+        <div class="status-pill status-pill-tag">Freelance &amp; partnerships</div>
+        <div class="status-pill status-pill-tag">Remote</div>
+      </div>
+      <h1 id="hero-title" class="hero-headline">I build AI agents &amp; automations businesses can <span class="accent-underline">rely on</span>, not demos.</h1>
+      <p class="hero-subline">Full-stack engineer with a cybersecurity background. WhatsApp/Telegram bots, custom AI agents, workflow automation and fast web apps that run real operations every day.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary"><span>Start a project</span><span aria-hidden="true">-&gt;</span></a>
+        <a href="#work" class="btn"><span>See the work</span><span class="mono" aria-hidden="true">[04]</span></a>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <div><span>Specification</span><strong>SYS-ARCH // REV 4.2</strong></div>
+      <div><span>Base</span><strong>Cairo, Egypt (remote)</strong></div>
+      <div><span>Doctrine</span><strong>Secure by design</strong></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="canvas-hud"><span>FIG 0.1 // AGENT_TOPOLOGY</span><span id="canvas-coords">YAW +0.0° PITCH +0.0°</span></div>
+    <div class="canvas-stage"><canvas id="arch-canvas" aria-label="Interactive wireframe node graph of an AI agent pipeline"></canvas></div>
+    <div class="canvas-hud bottom"><span>NODES: 14 // GUARDRAILS: STRICT</span><span id="canvas-hint">MOVE CURSOR</span></div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section-block proof-strip" aria-label="Key numbers">
+  <div class="proof-item reveal"><span class="proof-index">M_01 // Efficiency</span><div class="proof-value">15+ hrs/week</div><p class="proof-desc">saved for clients through automation</p></div>
+  <div class="proof-item reveal"><span class="proof-index">M_02 // Scale</span><div class="proof-value">848+ products</div><p class="proof-desc">managed by one AI agent</p></div>
+  <div class="proof-item reveal"><span class="proof-index">M_03 // Track record</span><div class="proof-value">3+ years</div><p class="proof-desc">shipping software for real businesses</p></div>
+  <div class="proof-item reveal"><span class="proof-index">M_04 // Standard</span><div class="proof-value">Production</div><p class="proof-desc">systems in daily use, not demos</p></div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="section-block grid-12" aria-labelledby="work-heading">
+  <aside class="section-rail pad-cell">
+    <div class="section-rail-sticky">
+      <span class="section-index-big" aria-hidden="true">01</span>
+      <span class="spec-label">01 / Selected work</span>
+      <h2 id="work-heading" class="section-heading">Systems in production.</h2>
+      <p class="side-annotation">DWG NO: WK-2023-2026<br />Each spec sheet describes a system that runs live inventory, cases, orders or conversations.</p>
+      <div style="margin-top:1.75rem"><a href="#contact" class="inline-cta">Start a similar project -&gt;</a></div>
+    </div>
+  </aside>
+  <div class="section-main">
+
+    <!-- CASE 01 -->
+    <article class="case-study reveal">
+      <div class="case-header"><span class="case-id">SPEC_01 // E-commerce automation</span><span class="case-class">Recharge Supplements // Live</span></div>
+      <h3 class="case-title">AI inventory agent for an 848+ SKU supplement store</h3>
+      <div class="spec-table">
+        <div class="spec-row"><div class="spec-key">Problem</div><div class="spec-val">Keeping 848+ products in sync between warehouse stock and the online store meant hours of manual checks, flavor mismatches and listings that drifted out of date.</div></div>
+        <div class="spec-row"><div class="spec-key">System</div><div class="spec-val">A WhatsApp/Telegram agent the team talks to like a colleague. It checks live stock and flavors, then creates and updates product listings, with strict guardrails so it never invents ingredients or claims.</div></div>
+        <div class="spec-row"><div class="spec-key">Stack</div><div class="spec-val"><div class="tag-cluster"><span class="tech-tag">Python</span><span class="tech-tag">LLMs</span><span class="tech-tag">WhatsApp / Telegram API</span><span class="tech-tag">Supabase</span><span class="tech-tag">n8n</span></div></div></div>
+        <div class="spec-row"><div class="spec-key">Result</div><div class="spec-val"><strong>848+ products managed from chat</strong>, with listing updates that used to take hours now done in minutes and the catalog kept in line with real stock.</div></div>
+      </div>
+      <div class="diagram-frame">
+        <div class="diagram-caption"><span>DIAG_01 // Agent dataflow</span><span>Guardrail: schema validation</span></div>
+        <div class="diagram-scroll">
+        <svg class="system-svg" viewBox="0 0 680 80" fill="none" role="img" aria-label="Chat message goes to the AI agent, is checked by guardrails against the inventory database, then updates the store">
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 1L8 5L0 9z" fill="#ff5a1f"/></marker></defs>
+          <rect x="2" y="16" width="140" height="48" stroke="#313846" fill="#12151a"/><text x="14" y="35" fill="#a0a6b2" font-size="9">01 / INGEST</text><text x="14" y="51" fill="#eceae4" font-size="10" font-weight="600">WhatsApp / TG</text>
+          <line class="flow" x1="142" y1="40" x2="176" y2="40" stroke="#ff5a1f" marker-end="url(#ar)"/>
+          <rect x="180" y="16" width="146" height="48" stroke="#ff5a1f" fill="#161a20"/><text x="192" y="35" fill="#ff5a1f" font-size="9">02 / AGENT</text><text x="192" y="51" fill="#eceae4" font-size="10" font-weight="600">Python + LLM</text>
+          <line class="flow" x1="326" y1="40" x2="360" y2="40" stroke="#ff5a1f" marker-end="url(#ar)"/>
+          <rect x="364" y="16" width="146" height="48" stroke="#313846" fill="#12151a"/><text x="376" y="35" fill="#a0a6b2" font-size="9">03 / GUARDRAILS</text><text x="376" y="51" fill="#eceae4" font-size="10" font-weight="600">Stock + rules DB</text>
+          <line class="flow" x1="510" y1="40" x2="544" y2="40" stroke="#ff5a1f" marker-end="url(#ar)"/>
+          <rect x="548" y="16" width="130" height="48" stroke="#313846" fill="#12151a"/><text x="560" y="35" fill="#a0a6b2" font-size="9">04 / COMMIT</text><text x="560" y="51" fill="#eceae4" font-size="10" font-weight="600">Live store</text>
+        </svg>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 02 -->
+    <article class="case-study reveal">
+      <div class="case-header"><span class="case-id">SPEC_02 // Legal operations</span><span class="case-class">Law office // Production</span></div>
+      <h3 class="case-title">AI law-office management platform</h3>
+      <div class="spec-table">
+        <div class="spec-row"><div class="spec-key">Problem</div><div class="spec-val">Cases, hearings, documents and client files lived in paper folders and scattered chats. Deadlines were easy to miss and sensitive data had no real access control.</div></div>
+        <div class="spec-row"><div class="spec-key">System</div><div class="spec-val">One web platform for cases, sessions, documents and clients, with role-based access, automatic hearing reminders, and AI help for searching and summarizing case files.</div></div>
+        <div class="spec-row"><div class="spec-key">Stack</div><div class="spec-val"><div class="tag-cluster"><span class="tech-tag">Next.js</span><span class="tech-tag">TypeScript</span><span class="tech-tag">PostgreSQL / Supabase</span><span class="tech-tag">Row-level security</span><span class="tech-tag">LLMs</span></div></div></div>
+        <div class="spec-row"><div class="spec-key">Result</div><div class="spec-val"><strong>One secure source of truth</strong> for the whole office, with reminders that stop missed hearings and documents found in seconds instead of minutes.</div></div>
+      </div>
+      <div class="diagram-frame">
+        <div class="diagram-caption"><span>DIAG_02 // Access model</span><span>RLS per role</span></div>
+        <div class="diagram-scroll">
+        <svg class="system-svg" viewBox="0 0 680 96" fill="none" role="img" aria-label="Lawyers, staff and admins access the platform through role-based security, which connects to the case database, the reminder scheduler and AI search">
+          <rect x="2" y="8" width="120" height="22" stroke="#313846" fill="#12151a"/><text x="12" y="23" fill="#eceae4" font-size="9.5">LAWYER</text>
+          <rect x="2" y="37" width="120" height="22" stroke="#313846" fill="#12151a"/><text x="12" y="52" fill="#eceae4" font-size="9.5">STAFF</text>
+          <rect x="2" y="66" width="120" height="22" stroke="#313846" fill="#12151a"/><text x="12" y="81" fill="#eceae4" font-size="9.5">ADMIN</text>
+          <path class="flow" d="M122 19H160V48M122 48H200M122 77H160V48" stroke="#ff5a1f"/>
+          <rect x="200" y="24" width="170" height="48" stroke="#ff5a1f" fill="#161a20"/><text x="212" y="43" fill="#ff5a1f" font-size="9">AUTH + RLS</text><text x="212" y="59" fill="#eceae4" font-size="10" font-weight="600">Next.js platform</text>
+          <path class="flow" d="M370 48H420M420 19V77M420 19H470M420 48H470M420 77H470" stroke="#ff5a1f"/>
+          <rect x="470" y="8" width="208" height="22" stroke="#313846" fill="#12151a"/><text x="480" y="23" fill="#eceae4" font-size="9.5">CASES + DOCS (Postgres)</text>
+          <rect x="470" y="37" width="208" height="22" stroke="#313846" fill="#12151a"/><text x="480" y="52" fill="#eceae4" font-size="9.5">HEARING REMINDERS</text>
+          <rect x="470" y="66" width="208" height="22" stroke="#313846" fill="#12151a"/><text x="480" y="81" fill="#eceae4" font-size="9.5">AI SEARCH / SUMMARY</text>
+        </svg>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 03 -->
+    <article class="case-study reveal">
+      <div class="case-header"><span class="case-id">SPEC_03 // Hospitality systems</span><span class="case-class">Restaurant // Production</span></div>
+      <h3 class="case-title">Multi-terminal restaurant ERP &amp; POS</h3>
+      <div class="spec-table">
+        <div class="spec-row"><div class="spec-key">Problem</div><div class="spec-val">Orders, kitchen tickets, stock and cash were tracked on separate tools and paper, so totals rarely matched at the end of the day and stock losses went unnoticed.</div></div>
+        <div class="spec-row"><div class="spec-key">System</div><div class="spec-val">A POS that runs on several terminals at once, synced in real time with the kitchen display, inventory and reporting, so every order moves stock and shows up in the numbers.</div></div>
+        <div class="spec-row"><div class="spec-key">Stack</div><div class="spec-val"><div class="tag-cluster"><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Realtime sync</span><span class="tech-tag">Role permissions</span></div></div></div>
+        <div class="spec-row"><div class="spec-key">Result</div><div class="spec-val"><strong>Every order, ticket and stock movement in one system</strong>, with end-of-day reports the owner can trust and clear visibility on waste.</div></div>
+      </div>
+      <div class="diagram-frame">
+        <div class="diagram-caption"><span>DIAG_03 // Terminal sync</span><span>Single source of truth</span></div>
+        <div class="diagram-scroll">
+        <svg class="system-svg" viewBox="0 0 680 96" fill="none" role="img" aria-label="Several POS terminals sync to a central database, which feeds the kitchen display, inventory and reports">
+          <rect x="2" y="8" width="110" height="22" stroke="#313846" fill="#12151a"/><text x="12" y="23" fill="#eceae4" font-size="9.5">POS T-01</text>
+          <rect x="2" y="37" width="110" height="22" stroke="#313846" fill="#12151a"/><text x="12" y="52" fill="#eceae4" font-size="9.5">POS T-02</text>
+          <rect x="2" y="66" width="110" height="22" stroke="#313846" fill="#12151a"/><text x="12" y="81" fill="#eceae4" font-size="9.5">POS T-0N</text>
+          <path class="flow" d="M112 19H160V48M112 48H230M112 77H160V48" stroke="#ff5a1f"/>
+          <rect x="230" y="24" width="170" height="48" stroke="#ff5a1f" fill="#161a20"/><text x="242" y="43" fill="#ff5a1f" font-size="9">CORE DB</text><text x="242" y="59" fill="#eceae4" font-size="10" font-weight="600">Realtime ledger</text>
+          <path class="flow" d="M400 48H440M440 19V77M440 19H480M440 48H480M440 77H480" stroke="#ff5a1f"/>
+          <rect x="480" y="8" width="198" height="22" stroke="#313846" fill="#12151a"/><text x="490" y="23" fill="#eceae4" font-size="9.5">KITCHEN DISPLAY</text>
+          <rect x="480" y="37" width="198" height="22" stroke="#313846" fill="#12151a"/><text x="490" y="52" fill="#eceae4" font-size="9.5">INVENTORY</text>
+          <rect x="480" y="66" width="198" height="22" stroke="#313846" fill="#12151a"/><text x="490" y="81" fill="#eceae4" font-size="9.5">REPORTS / CASH</text>
+        </svg>
+        </div>
+      </div>
+    </article>
+
+    <!-- CASE 04 -->
+    <article class="case-study reveal">
+      <div class="case-header"><span class="case-id">SPEC_04 // Conversational AI</span><span class="case-class">Voice + chat // Production</span></div>
+      <h3 class="case-title">Real-time voice &amp; chat pipelines</h3>
+      <div class="spec-table">
+        <div class="spec-row"><div class="spec-key">Problem</div><div class="spec-val">Customers wait for answers on calls and chats outside working hours, and simple repeat questions eat up the team's day.</div></div>
+        <div class="spec-row"><div class="spec-key">System</div><div class="spec-val">Low-latency pipelines that turn speech to text, let an AI agent answer using the business's own data, and speak or send the reply back, with a hand-off to a human when needed.</div></div>
+        <div class="spec-row"><div class="spec-key">Stack</div><div class="spec-val"><div class="tag-cluster"><span class="tech-tag">Python</span><span class="tech-tag">Speech-to-text</span><span class="tech-tag">LLMs</span><span class="tech-tag">Text-to-speech</span><span class="tech-tag">Webhooks</span></div></div></div>
+        <div class="spec-row"><div class="spec-key">Result</div><div class="spec-val"><strong>24/7 first response on voice and chat</strong>, with routine questions handled automatically and people only pulled in when it matters.</div></div>
+      </div>
+      <div class="diagram-frame">
+        <div class="diagram-caption"><span>DIAG_04 // Voice loop</span><span>Human hand-off on low confidence</span></div>
+        <div class="diagram-scroll">
+        <svg class="system-svg" viewBox="0 0 680 96" fill="none" role="img" aria-label="Caller audio goes to speech to text, then the AI agent, then text to speech back to the caller, with a hand-off branch to a human">
+          <rect x="2" y="16" width="110" height="44" stroke="#313846" fill="#12151a"/><text x="14" y="34" fill="#a0a6b2" font-size="9">IN</text><text x="14" y="50" fill="#eceae4" font-size="10" font-weight="600">Caller / chat</text>
+          <line class="flow" x1="112" y1="38" x2="146" y2="38" stroke="#ff5a1f" marker-end="url(#ar)"/>
+          <rect x="150" y="16" width="120" height="44" stroke="#313846" fill="#12151a"/><text x="162" y="34" fill="#a0a6b2" font-size="9">STT</text><text x="162" y="50" fill="#eceae4" font-size="10" font-weight="600">Transcribe</text>
+          <line class="flow" x1="270" y1="38" x2="304" y2="38" stroke="#ff5a1f" marker-end="url(#ar)"/>
+          <rect x="308" y="16" width="130" height="44" stroke="#ff5a1f" fill="#161a20"/><text x="320" y="34" fill="#ff5a1f" font-size="9">AGENT</text><text x="320" y="50" fill="#eceae4" font-size="10" font-weight="600">LLM + data</text>
+          <line class="flow" x1="438" y1="38" x2="472" y2="38" stroke="#ff5a1f" marker-end="url(#ar)"/>
+          <rect x="476" y="16" width="120" height="44" stroke="#313846" fill="#12151a"/><text x="488" y="34" fill="#a0a6b2" font-size="9">TTS</text><text x="488" y="50" fill="#eceae4" font-size="10" font-weight="600">Reply</text>
+          <path d="M373 60V84H600" stroke="#646b78" stroke-dasharray="3 3"/><text x="384" y="80" fill="#646b78" font-size="9">LOW CONFIDENCE -> HUMAN AGENT</text>
+          <path class="flow" d="M596 38H640V8H57V16" stroke="#ff5a1f" opacity=".6"/>
+        </svg>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section-block" aria-labelledby="services-heading">
+  <div class="pad-cell" style="border-bottom:1px solid var(--hairline)">
+    <span class="section-index-big" aria-hidden="true">02</span>
+    <span class="spec-label">02 / Services</span>
+    <h2 id="services-heading" class="section-heading">What I can build for you.</h2>
+  </div>
+  <div class="service-row reveal">
+    <div class="service-num">01</div>
+    <div class="service-title-col"><h3 class="service-title">AI agents &amp; WhatsApp/Telegram bots</h3><p class="service-sub">Agents your team or customers talk to in the apps they already use, connected to your real data.</p></div>
+    <div class="service-spec-col"><ul class="service-deliverables"><li>Customer support and sales bots</li><li>Internal agents for inventory, orders and reports</li><li>Guardrails so the AI never makes things up</li></ul></div>
+  </div>
+  <div class="service-row reveal">
+    <div class="service-num">02</div>
+    <div class="service-title-col"><h3 class="service-title">Workflow automation</h3><p class="service-sub">Python, n8n, webhooks and APIs that remove the repetitive work between your tools.</p></div>
+    <div class="service-spec-col"><ul class="service-deliverables"><li>Connect CRMs, stores, sheets and messaging</li><li>Scheduled jobs, alerts and syncs</li><li>Hours saved every week, measured</li></ul></div>
+  </div>
+  <div class="service-row reveal">
+    <div class="service-num">03</div>
+    <div class="service-title-col"><h3 class="service-title">Full-stack web apps &amp; SaaS MVPs</h3><p class="service-sub">Fast, secure apps built with Next.js and Supabase, from idea to launched product.</p></div>
+    <div class="service-spec-col"><ul class="service-deliverables"><li>Dashboards, portals and internal tools</li><li>SaaS MVPs with auth, billing and roles</li><li>3D web experiences with Three.js / WebGL</li></ul></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="section-block" aria-labelledby="process-heading">
+  <div class="pad-cell">
+    <span class="section-index-big" aria-hidden="true">03</span>
+    <span class="spec-label">03 / Process</span>
+    <h2 id="process-heading" class="section-heading">How a project runs.</h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal"><div><div class="process-num"><span>Step 01</span><span>Day 1</span></div><h3 class="process-title">Discover</h3><p class="process-desc">A short call to understand the problem, the tools you use today and what success looks like in numbers.</p></div><div class="process-gate">Output: clear scope</div></div>
+    <div class="process-step reveal"><div><div class="process-num"><span>Step 02</span><span>Week 1</span></div><h3 class="process-title">Design</h3><p class="process-desc">I map the system, data flow and guardrails, and agree on a fixed plan, timeline and price.</p></div><div class="process-gate">Output: system blueprint</div></div>
+    <div class="process-step reveal"><div><div class="process-num"><span>Step 03</span><span>Build</span></div><h3 class="process-title">Build &amp; test</h3><p class="process-desc">Short cycles with working demos on your real data, tested for edge cases and security from day one.</p></div><div class="process-gate">Output: working system</div></div>
+    <div class="process-step reveal"><div><div class="process-num"><span>Step 04</span><span>Ongoing</span></div><h3 class="process-title">Launch &amp; support</h3><p class="process-desc">Deploy, train your team, monitor it in production and keep improving it as your business grows.</p></div><div class="process-gate">Output: system in production</div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section-block" aria-labelledby="exp-heading">
+  <div class="pad-cell" style="border-bottom:1px solid var(--hairline)">
+    <span class="section-index-big" aria-hidden="true">04</span>
+    <span class="spec-label">04 / Experience</span>
+    <h2 id="exp-heading" class="section-heading">Where I've been building.</h2>
+  </div>
+  <div class="timeline-item reveal">
+    <div class="timeline-meta"><span class="timeline-period">JAN 2025 - PRESENT</span><span>Partnership</span><span>Egypt</span></div>
+    <div class="timeline-body">
+      <h3 class="timeline-role">Technical Partner &amp; Full-Stack / AI Architect</h3>
+      <div class="timeline-org"><span>Recharge Supplements</span><a href="https://rechargesupp.com" target="_blank" rel="noopener">rechargesupp.com</a></div>
+      <ul class="timeline-bullets">
+        <li>Built and run the AI inventory agent that manages 848+ products from WhatsApp and Telegram.</li>
+        <li>Own the technical side of the business: store, automations, data and integrations.</li>
+        <li>Turned hours of manual catalog work into minutes, with guardrails that keep listings accurate.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="timeline-item reveal">
+    <div class="timeline-meta"><span class="timeline-period">JAN 2023 - PRESENT</span><span>Self-employed</span><span>Remote</span></div>
+    <div class="timeline-body">
+      <h3 class="timeline-role">AI Automation &amp; Full-Stack Engineer</h3>
+      <div class="timeline-org"><span>Freelance</span></div>
+      <ul class="timeline-bullets">
+        <li>Delivered a law-office management platform, a multi-terminal restaurant ERP &amp; POS, and voice/chat AI pipelines.</li>
+        <li>Built automations with Python, n8n, webhooks and APIs that save clients 15+ hours a week.</li>
+        <li>Brought a security-first approach to every build: access control, validation and safe failure.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" class="section-block" aria-labelledby="stack-heading">
+  <div class="pad-cell" style="border-bottom:1px solid var(--hairline)">
+    <span class="section-index-big" aria-hidden="true">05</span>
+    <span class="spec-label">05 / Stack</span>
+    <h2 id="stack-heading" class="section-heading">Tools I ship with.</h2>
+  </div>
+  <div class="stack-matrix">
+    <div class="stack-group reveal"><div class="stack-group-header"><span class="stack-group-title">AI &amp; agents</span><span class="stack-group-code">GRP_A</span></div><div class="stack-pills"><span class="stack-pill">LLM APIs</span><span class="stack-pill">AI agents</span><span class="stack-pill">RAG</span><span class="stack-pill">Voice (STT / TTS)</span><span class="stack-pill">Prompt guardrails</span></div></div>
+    <div class="stack-group reveal"><div class="stack-group-header"><span class="stack-group-title">Automation</span><span class="stack-group-code">GRP_B</span></div><div class="stack-pills"><span class="stack-pill">Python</span><span class="stack-pill">n8n</span><span class="stack-pill">Webhooks</span><span class="stack-pill">REST APIs</span><span class="stack-pill">WhatsApp API</span><span class="stack-pill">Telegram API</span></div></div>
+    <div class="stack-group reveal"><div class="stack-group-header"><span class="stack-group-title">Web &amp; frontend</span><span class="stack-group-code">GRP_C</span></div><div class="stack-pills"><span class="stack-pill">TypeScript</span><span class="stack-pill">Next.js</span><span class="stack-pill">React</span><span class="stack-pill">Three.js / WebGL</span><span class="stack-pill">Tailwind</span></div></div>
+    <div class="stack-group reveal"><div class="stack-group-header"><span class="stack-group-title">Data &amp; security</span><span class="stack-group-code">GRP_D</span></div><div class="stack-pills"><span class="stack-pill">PostgreSQL</span><span class="stack-pill">Supabase</span><span class="stack-pill">Row-level security</span><span class="stack-pill">Auth</span><span class="stack-pill">Secure-by-design</span></div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-block grid-12" aria-labelledby="about-heading">
+  <aside class="section-rail pad-cell">
+    <div class="section-rail-sticky">
+      <span class="section-index-big" aria-hidden="true">06</span>
+      <span class="spec-label">06 / About</span>
+      <h2 id="about-heading" class="section-heading">Security mindset, builder's hands.</h2>
+    </div>
+  </aside>
+  <div class="section-main pad-cell">
+    <div class="about-copy reveal">
+      <p class="about-lead">My background is cybersecurity, so the first question I ask about any system is: "what breaks when this goes wrong?"</p>
+      <p class="about-body">That question shapes everything I build. I'm a full-stack engineer who builds AI agents, automations and web apps for businesses that need them to work every day, not just in a demo. I've built an AI agent that runs an 848+ product store from chat, a management platform for a law office, a multi-terminal restaurant POS and real-time voice and chat pipelines.</p>
+      <p class="about-body">I work directly with owners and teams, explain things in plain language, and stay around after launch. If your business loses hours to repetitive work, that's the problem I like solving.</p>
+    </div>
+    <div class="about-specs reveal">
+      <div class="about-spec"><span>Based in</span>Cairo, Egypt</div>
+      <div class="about-spec"><span>Works</span>Remote, worldwide</div>
+      <div class="about-spec"><span>Languages</span>Arabic, English</div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIPS -->
+<section class="section-block partnership-banner" aria-labelledby="partner-heading">
+  <div class="partnership-left reveal">
+    <span class="spec-label">07 / Partnerships</span>
+    <h2 id="partner-heading" class="partnership-quote">Got the clients or the idea? I bring the system.</h2>
+    <p class="about-body" style="max-width:60ch">I partner with agencies, founders and business owners on win-win terms: white-label builds, technical co-ownership, or revenue-share on products we create together.</p>
+  </div>
+  <div class="partnership-right reveal">
+    <span class="spec-label">Open to</span>
+    <ul class="service-deliverables"><li>Agency white-label work</li><li>Technical partner for founders</li><li>Revenue-share products</li></ul>
+    <a href="#contact" class="btn btn-primary" data-topic="Partnership">Propose a partnership</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section-block grid-12" aria-labelledby="contact-heading">
+  <div class="contact-left pad-cell">
+    <div>
+      <span class="section-index-big" aria-hidden="true">08</span>
+      <span class="spec-label">08 / Contact</span>
+      <h2 id="contact-heading" class="section-heading">Tell me what's slowing your business down.</h2>
+      <p class="about-body" style="margin-top:1rem">I reply within 24 hours with honest next steps, even if I'm not the right fit.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <a class="email-line" href="mailto:shadowsightsx@gmail.com">shadowsightsx@gmail.com</a>
+      <div class="btn-row">
+        <button type="button" class="btn btn-sm" id="copy-email">Copy email</button>
+        <!-- REPLACE: add your real links -->
+        <a href="#" class="btn btn-sm">LinkedIn</a>
+        <a href="#" class="btn btn-sm">WhatsApp</a>
+        <a href="#" class="btn btn-sm">GitHub</a>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right pad-cell">
+    <form class="spec-form" id="contact-form" novalidate>
+      <div class="form-row-2">
+        <div class="field-group"><label class="field-label" for="f-name">Name <span>*</span></label><input class="field-input" id="f-name" name="name" required autocomplete="name" /></div>
+        <div class="field-group"><label class="field-label" for="f-company">Company</label><input class="field-input" id="f-company" name="company" autocomplete="organization" /></div>
+      </div>
+      <div class="field-group"><label class="field-label" for="f-topic">What do you need?</label>
+        <select class="field-select" id="f-topic" name="topic">
+          <option>AI agent / WhatsApp or Telegram bot</option>
+          <option>Workflow automation</option>
+          <option>Web app / SaaS MVP</option>
+          <option>Partnership</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field-group"><label class="field-label" for="f-msg">Project details <span>*</span></label><textarea class="field-textarea" id="f-msg" name="message" required placeholder="What's the problem, and what would a great result look like?"></textarea></div>
+      <div class="form-footer">
+        <span class="form-note" id="form-note">Opens your email app with the message ready to send.</span>
+        <button type="submit" class="btn btn-primary">Send message -&gt;</button>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="terminal-prompt"><span class="terminal-user">mohamad@cairo</span><span>:~$</span><span>echo "build things that don't break"</span><span class="terminal-cursor" aria-hidden="true"></span></div>
+  <div>&copy; <span id="year"></span> Mohamad Maged // <a href="#top" class="inline-cta">Top ^</a></div>
+</footer>
+
+<script>
+(function(){
+  // Cairo clock
+  var t=document.getElementById('cairo-time');
+  function tick(){try{t.textContent=new Intl.DateTimeFormat('en-GB',{timeZone:'Africa/Cairo',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(new Date());}catch(e){t.textContent=new Date().toTimeString().slice(0,8);}}
+  tick();setInterval(tick,1000);
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  // Mobile menu
+  var btn=document.getElementById('menu-btn'),menu=document.getElementById('mobile-menu');
+  function setMenu(open){menu.classList.toggle('is-open',open);btn.setAttribute('aria-expanded',open);menu.setAttribute('aria-hidden',!open);document.getElementById('menu-label').textContent=open?'Close':'Menu';document.getElementById('menu-icon').textContent=open?'[x]':'[+]';document.body.classList.toggle('menu-open',open);}
+  btn.addEventListener('click',function(){setMenu(!menu.classList.contains('is-open'));});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+  window.addEventListener('resize',function(){if(window.innerWidth>1120)setMenu(false);});
+
+  // Reveal + active nav
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:.08});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+    var links=document.querySelectorAll('.nav-link');
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){so.observe(s);});
+  } else document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('is-visible');});
+
+  // Contact
+  var email='shadowsightsx@gmail.com';
+  document.getElementById('copy-email').addEventListener('click',function(){var b=this;function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email';},1500);}
+    if(navigator.clipboard){navigator.clipboard.writeText(email).then(done,function(){window.location.href='mailto:'+email;});}else{window.location.href='mailto:'+email;}});
+  document.querySelectorAll('[data-topic]').forEach(function(a){a.addEventListener('click',function(){document.getElementById('f-topic').value=a.dataset.topic;});});
+  document.getElementById('contact-form').addEventListener('submit',function(e){
+    e.preventDefault();var f=e.target,n=f.name.value.trim(),m=f.message.value.trim(),note=document.getElementById('form-note');
+    if(!n||!m){note.textContent='Please add your name and project details.';note.style.color='var(--accent)';return;}
+    var subject='['+f.topic.value+'] Project inquiry from '+n+(f.company.value.trim()?' ('+f.company.value.trim()+')':'');
+    var body='Hi Mohamad,\n\n'+m+'\n\n- '+n+(f.company.value.trim()?'\n'+f.company.value.trim():'');
+    window.location.href='mailto:'+email+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    note.style.color='';note.textContent='Your email app should open now. If not, email '+email+'.';
+  });
+
+  // Wireframe node graph
+  var c=document.getElementById('arch-canvas'),ctx=c.getContext('2d'),stage=c.parentElement;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var labels=['WHATSAPP','TELEGRAM','WEBHOOK','AGENT','LLM','GUARD','DB','STORE','N8N','API','VOICE','CRM','AUTH','LOG'];
+  var nodes=[],edges=[],W=0,H=0,dpr=1;
+  for(var i=0;i<14;i++){var phi=Math.acos(1-2*(i+.5)/14),th=Math.PI*(1+Math.sqrt(5))*i,r=i===3?0:1;nodes.push({x:Math.sin(phi)*Math.cos(th)*r,y:Math.cos(phi)*r,z:Math.sin(phi)*Math.sin(th)*r,l:labels[i]});}
+  for(i=0;i<14;i++){if(i!==3)edges.push([3,i]);}
+  for(i=0;i<14;i++)for(var j=i+1;j<14;j++){if(i===3||j===3)continue;var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,dz=nodes[i].z-nodes[j].z;if(dx*dx+dy*dy+dz*dz<1.15)edges.push([i,j]);}
+  var yaw=.3,pitch=-.2,ty=.3,tp=-.2,auto=0,pulse=0,coords=document.getElementById('canvas-coords');
+  function size(){dpr=Math.min(window.devicePixelRatio||1,2);W=stage.clientWidth;H=stage.clientHeight;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  size();window.addEventListener('resize',size);
+  function aim(cx,cy){var r=stage.getBoundingClientRect();ty=((cx-r.left)/r.width-.5)*2.2;tp=((cy-r.top)/r.height-.5)*1.4;auto=0;}
+  window.addEventListener('mousemove',function(e){var r=stage.getBoundingClientRect();if(e.clientY>r.top-200&&e.clientY<r.bottom+200)aim(e.clientX,e.clientY);});
+  stage.addEventListener('touchmove',function(e){aim(e.touches[0].clientX,e.touches[0].clientY);},{passive:true});
+  if(!window.matchMedia('(hover: hover)').matches)document.getElementById('canvas-hint').textContent='DRAG TO ROTATE';
+  function proj(n){var cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);var x=n.x*cy-n.z*sy,z=n.x*sy+n.z*cy,y=n.y*cp-z*sp;z=n.y*sp+z*cp;var s=Math.min(W,H)*.36,p=3/(3+z);return{x:W/2+x*s*p,y:H/2+y*s*p,z:z,p:p};}
+  function draw(){
+    auto+=1;if(auto>180&&!reduce)ty+=.0025;
+    yaw+=(ty-yaw)*.06;pitch+=(tp-pitch)*.06;pulse=(pulse+.012)%1;
+    ctx.clearRect(0,0,W,H);
+    ctx.strokeStyle='rgba(236,234,228,.05)';ctx.lineWidth=1;
+    for(var g=-3;g<=3;g++){var a=proj({x:g/3*1.4,y:1.25,z:-1.4}),b=proj({x:g/3*1.4,y:1.25,z:1.4});ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();a=proj({x:-1.4,y:1.25,z:g/3*1.4});b=proj({x:1.4,y:1.25,z:g/3*1.4});ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+    var P=nodes.map(proj);
+    edges.forEach(function(e,k){var a=P[e[0]],b=P[e[1]],hub=e[0]===3;ctx.strokeStyle=hub?'rgba(255,90,31,'+(.25+.25*(1-(a.z+b.z)/4))+')':'rgba(160,166,178,.22)';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+      if(hub&&!reduce){var t=(pulse+k*.13)%1,px=b.x+(a.x-b.x)*t,py=b.y+(a.y-b.y)*t;ctx.fillStyle='#ff5a1f';ctx.fillRect(px-1.5,py-1.5,3,3);}});
+    var order=P.map(function(p,i){return i;}).sort(function(a,b){return P[b].z-P[a].z;});
+    ctx.font='9px "JetBrains Mono", monospace';
+    order.forEach(function(i){var p=P[i],s=(i===3?9:5)*p.p,front=p.z<.2;ctx.fillStyle='#0d0f12';ctx.strokeStyle=i===3?'#ff5a1f':(front?'#eceae4':'#646b78');ctx.fillRect(p.x-s,p.y-s,s*2,s*2);ctx.strokeRect(p.x-s,p.y-s,s*2,s*2);if(i===3){ctx.fillStyle='#ff5a1f';ctx.fillRect(p.x-2,p.y-2,4,4);}
+      if(front||i===3){ctx.fillStyle=i===3?'#ff5a1f':'rgba(160,166,178,.85)';ctx.fillText(p.l,p.x+s+4,p.y+3);}});
+    coords.textContent='YAW '+(yaw*57.3>=0?'+':'')+(yaw*57.3%360).toFixed(1)+'° PITCH '+(pitch*57.3>=0?'+':'')+(pitch*57.3).toFixed(1)+'°';
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
